@@ -1,4 +1,4 @@
-package com.devsuperior.workshopmongo.services.exceptioons;
+package com.devsuperior.workshopmongo.services.exceptions;
 
 public class ResourceNotFoundException extends RuntimeException {
 

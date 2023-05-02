@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.devsuperior.workshopmongo.dto.CustomError;
-import com.devsuperior.workshopmongo.services.exceptioons.ResourceNotFoundException;
+import com.devsuperior.workshopmongo.services.exceptions.ResourceNotFoundException;
 
 @ControllerAdvice
 public class ControllerExceptionHandler {

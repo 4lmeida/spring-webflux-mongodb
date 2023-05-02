@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.devsuperior.workshopmongo.dto.PostDTO;
 import com.devsuperior.workshopmongo.entities.Post;
 import com.devsuperior.workshopmongo.repositories.PostRepository;
-import com.devsuperior.workshopmongo.services.exceptioons.ResourceNotFoundException;
+import com.devsuperior.workshopmongo.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class PostService {
