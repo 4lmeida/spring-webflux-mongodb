@@ -32,6 +32,17 @@ public class UserService {
 		Mono<UserDTO> result =  repository.save(entity).map(userDto -> new UserDTO(userDto));
 		return result;
 	}
+	
+	public Mono<UserDTO> update(String id, UserDTO dto) {
+		return repository.findById(id).flatMap(existingUser -> {
+			existingUser.setName(dto.getName());
+			existingUser.setEmail(dto.getEmail());
+			return repository.save(existingUser);
+		})
+		.map(user -> new UserDTO(user))
+		.switchIfEmpty(Mono.error(new ResourceNotFoundException("Recurso não encontrado")));
+				
+	}
 
 	private void copyDtoToEntity(User entity, UserDTO dto) {
 		entity.setName(dto.getName());
