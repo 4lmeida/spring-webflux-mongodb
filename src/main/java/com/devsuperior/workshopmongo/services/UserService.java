@@ -43,6 +43,12 @@ public class UserService {
 		.switchIfEmpty(Mono.error(new ResourceNotFoundException("Recurso não encontrado")));
 				
 	}
+	
+	public Mono<Void> delete(String id) {
+		return repository.findById(id)
+				.switchIfEmpty(Mono.error(new ResourceNotFoundException("Recurso não encontrado")))
+				.flatMap(existingUser -> repository.delete(existingUser));
+	}
 
 	private void copyDtoToEntity(User entity, UserDTO dto) {
 		entity.setName(dto.getName());
